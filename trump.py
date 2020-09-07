@@ -1,6 +1,10 @@
+"""Trump.py
+    
+    Trump card for python
+
+"""
 import random
 from collections import deque
-
 DECK = [
     ("SPD", "A"), ("SPD", "2"), ("SPD", "3"), ("SPD", "4"), ("SPD", "5"),
     ("SPD", "6"), ("SPD", "7"), ("SPD", "8"), ("SPD", "9"), ("SPD", "10"),
@@ -17,7 +21,7 @@ DECK = [
 ]
 
 
-class Card:
+class Trump:
     def __init__(self, contain_joker=False, doshufflefirst=True):
         self.deck = deque(DECK)
         if contain_joker:
@@ -25,7 +29,7 @@ class Card:
         if doshufflefirst:
             self.shuffle()
 
-    def choice(self):
+    def choice(self) -> tuple:
         return self.deck.popleft()
 
     def choices(self, count: int):
